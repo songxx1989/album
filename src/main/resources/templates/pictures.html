@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>pictures</title>
+</head>
+<body>
+
+<h3>pictures</h3>
+<a href="/pictures/add">add picture</a>
+
+<ul>
+    <li th:each="picture : ${pictures}">
+        <a th:href="${'/pictures/'+picture.id}">
+            <img th:src="${picture.relativePath}" style="width: 100px">
+            <span th:text="${picture.originalFilename}"></span>
+        </a>
+    </li>
+</ul>
+</body>
+</html>

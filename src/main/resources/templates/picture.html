@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<form action="/comment/add" method="post">
+    <input type="hidden" name="pid" th:value="${picture.id}">
+    <textarea name="comment" placeholder="发表评论"></textarea>
+    <br>
+    <input type="submit">
+</form>
+
+<img th:src="${picture.relativePath}" alt="" style="max-width: 1900px;">
+<h3 th:text="${picture.originalFilename}"></h3>
+<p th:text="${picture.label}"></p>
+
+<ul>
+    <li th:each="comment : ${comments}">
+        <p th:text="${comment.comment}"></p>
+        <span th:text="${comment.ctime}"></span>
+    </li>
+</ul>
+</body>
+</html>

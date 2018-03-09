@@ -1,0 +1,19 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/album
+    username: root
+    password: root
+  jpa:
+    hibernate:
+      ddl-auto: create
+    show-sql: true
+  mvc:
+    static-path-pattern: /**
+  servlet:
+    multipart:
+      max-file-size: 50Mb
+      max-request-size: 50Mb
+server:
+  tomcat:
+    basedir: C:\Users\song\Desktop\upload
