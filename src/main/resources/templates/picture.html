@@ -3,25 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" th:href="@{/static/bootstrap-3.3.7-dist/css/bootstrap.css}">
 </head>
 <body>
 
-<form action="/comment/add" method="post">
-    <input type="hidden" name="pid" th:value="${picture.id}">
-    <textarea name="comment" placeholder="发表评论"></textarea>
-    <br>
-    <input type="submit">
-</form>
+<div class="container">
+    <div class="page-header">
+        <h3>${picture.label}</h3>
+    </div>
 
-<img th:src="${picture.relativePath}" alt="" style="max-width: 1900px;">
-<h3 th:text="${picture.originalFilename}"></h3>
-<p th:text="${picture.label}"></p>
+    <img th:src="${picture.relativePath}" class="img-rounded">
+    <p th:text="${picture.description}" class="text-primary"></p>
 
-<ul>
-    <li th:each="comment : ${comments}">
-        <p th:text="${comment.comment}"></p>
-        <span th:text="${comment.ctime}"></span>
-    </li>
-</ul>
+    <form action="/comment/add" method="post">
+        <input type="hidden" name="pid" th:value="${picture.id}">
+
+        <div class="form-group">
+            <label>评论</label>
+            <textarea name="comment"class="form-control" rows="3"></textarea>
+        </div>
+        <button type="submit" class="btn btn-default">提交</button>
+    </form>
+
+    <ul>
+        <li th:each="comment : ${comments}">
+            <p th:text="${comment.comment}"></p>
+            <span th:text="${comment.ctime}"></span>
+        </li>
+    </ul>
+</div>
 </body>
 </html>

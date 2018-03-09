@@ -15,19 +15,30 @@ public class Picture {
     private String absolutePath;
     private String relativePath;
     private String contentType;
+    @Column(length = 3000)
+    private String description;
     private Date ctime;
 
     public Picture() {
     }
 
-    public Picture(String label, String originalFilename, String filename, String absolutePath, String relativePath, String contentType, Date ctime) {
+    public Picture(String label, String originalFilename, String filename, String absolutePath, String relativePath, String contentType, String description, Date ctime) {
         this.label = label;
         this.originalFilename = originalFilename;
         this.filename = filename;
         this.absolutePath = absolutePath;
         this.relativePath = relativePath;
         this.contentType = contentType;
+        this.description = description;
         this.ctime = ctime;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public String getContentType() {

@@ -54,6 +54,7 @@ public class PictureController {
         String absolutePath = realPath + filename;
         String relativePath = uploadFolder + filename;
         String contentType = multipartFile.getContentType();
+        String description = httpServletRequest.getParameter("description");
 
         File targetFile = new File(realPath);
         if (!targetFile.exists()) {
@@ -75,7 +76,7 @@ public class PictureController {
         }
 
         Picture picture = new Picture(label, originalFilename, filename, absolutePath,
-                relativePath, contentType, new Date());
+                relativePath, contentType, description, new Date());
         pictureRepository.save(picture);
 
         return "redirect:/pictures";

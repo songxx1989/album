@@ -9,11 +9,13 @@ spring:
       ddl-auto: create
     show-sql: true
   mvc:
-    static-path-pattern: /**
+    static-path-pattern: /static/**
   servlet:
     multipart:
       max-file-size: 50Mb
       max-request-size: 50Mb
+  thymeleaf:
+    cache: false
 server:
   tomcat:
     basedir: C:\Users\song\Desktop\upload
